@@ -1,4 +1,4 @@
-@extends('admin.layout.base')
+@extends('admin.layouts.base')
 
 @section('content')
     <div class="py-4 row">

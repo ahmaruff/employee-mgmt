@@ -16,16 +16,21 @@ use Illuminate\Support\Facades\Route;
 // HOME
 Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('admin')->group(function() {
+Route::prefix('admin')->name('admin.')->group(function() {
     // AUTH
-    Route::get('/login', [\App\Http\Controllers\Admin\Auth\AuthenticatedSessionController::class, 'create'])->name('admin.login');
-    Route::post('/login', [\App\Http\Controllers\Admin\Auth\AuthenticatedSessionController::class, 'store'])->name('admin.auth');
-    Route::get('/register', [\App\Http\Controllers\Admin\Auth\RegisteredUserController::class, 'create'])->name('admin.register');
-    Route::post('/register', [\App\Http\Controllers\Admin\Auth\RegisteredUserController::class, 'store'])->name('admin.post-register');
+    Route::get('/login', [\App\Http\Controllers\Admin\Auth\AuthenticatedSessionController::class, 'create'])->name('login');
+    Route::post('/login', [\App\Http\Controllers\Admin\Auth\AuthenticatedSessionController::class, 'store'])->name('auth');
+    Route::get('/register', [\App\Http\Controllers\Admin\Auth\RegisteredUserController::class, 'create'])->name('register');
+    Route::post('/register', [\App\Http\Controllers\Admin\Auth\RegisteredUserController::class, 'store'])->name('post-register');
 
     // ADMIN
     Route::middleware('auth:admin')->group(function () {
-        Route::post('logout', [\App\Http\Controllers\Admin\Auth\AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
-        Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.dashboard');
+        Route::post('logout', [\App\Http\Controllers\Admin\Auth\AuthenticatedSessionController::class, 'destroy'])->name('logout');
+        Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('dashboard');
+
+        // Division
+        Route::resource('division', \App\Http\Controllers\Admin\DivisionController::class);
+        Route::resource('position', \App\Http\Controllers\Admin\PositionController::class);
+        Route::resource('employee', \App\Http\Controllers\Admin\EmployeeController::class);
     });
 });
