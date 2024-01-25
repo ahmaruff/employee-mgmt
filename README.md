@@ -20,6 +20,14 @@ This is simple CRUD app for managing employees data, build with Laravel
   - `php artisan db:seed EmployeeSeeder`
 - run server `php artisan serve`
 
+### Auth
+url: `/admin/login`
+
+email: admin@gmail.com
+
+password: 12345678 
+
+*or you can register to this app via `/admin/register`*
 ## Author
 
 Ahmad Ma'ruf [LinkedIn](https://www.linkedin.com/in/ahmaruff/)
