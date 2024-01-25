@@ -4,7 +4,7 @@ This is simple CRUD app for managing employees data, build with Laravel
 
 ## Database Schema
 
-![db schema](./employee-mgmt.png)
+![db schema](./employee-mgmt-db.png)
 
 ## Getting Started
 
