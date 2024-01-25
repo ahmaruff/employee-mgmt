@@ -12,9 +12,6 @@
     </div>
     <div class="py-4 row">
         <div class="col-12">
-            @if ($errors)
-                @dump($errors)
-            @endif
             <div class="card bg-white-100 border-0 shadow">
                 <div class="card-body p-4">
                     <form action="{{route('admin.employee.update', $employee->id)}}" method="post">
