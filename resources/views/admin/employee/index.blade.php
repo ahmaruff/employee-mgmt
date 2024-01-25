@@ -21,6 +21,7 @@
                                     <th class="border-0">Email</th>
                                     <th class="border-0">Name</th>
                                     <th class="border-0">Division</th>
+                                    <th class="border-0">Salary</th>
                                     <th class="border-0 rounded-end">Action</th>
                                 </tr>
                             </thead>
@@ -31,6 +32,7 @@
                                     <td>{{ $employee->email }}</td>
                                     <td>{{ $employee->firstname.' '.$employee->lastname }}</td>
                                     <td>{{ $employee->division->name }}</td>
+                                    <td>{{ $employee->salary->amount }}</td>
                                     <td class="row gap-3">
                                         <div class="col-1">
                                             <a href="{{route('admin.employee.show', $employee->id)}}" class="col btn btn-sm btn-icon-only btn-primary">

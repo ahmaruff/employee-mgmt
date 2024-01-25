@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Division;
 use App\Models\Employee;
 use App\Models\Position;
+use App\Models\Salary;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -56,6 +57,8 @@ class EmployeeController extends Controller
             'address' => ['required', 'string', 'max:255'],
             'division_id' => ['required'],
             'position_id' => ['required'],
+            'salary' => ['required', 'decimal:0,2'],
+            'payment_date'=> ['required', 'string'],
         ];
 
         $validatedReq = $request->validate($rules);
@@ -71,6 +74,19 @@ class EmployeeController extends Controller
         $employee->division_id = $validatedReq['division_id'];
 
         $employee->save();
+
+        $sal = Salary::where('employee_id', $employee->id)->first();
+        if(empty($sal)) {
+            Salary::create([
+                'employee_id' => $employee->id,
+                'amount' => $validatedReq['salary'],
+                'paymnet_date' => $validatedReq['paymnet_date'],
+            ]);
+        } else {
+            $employee->salary->amount = $validatedReq['salary'];
+            $employee->salary->payment_date = $validatedReq['payment_date'];
+        }
+
 
         $pos = Position::find($validatedReq['position_id']);
         $employee->positions()->attach($pos,['employee_id' => $employee->id,'start_date'=> Carbon::today()]);
@@ -124,6 +140,8 @@ class EmployeeController extends Controller
             'address' => ['required', 'string', 'max:255'],
             'division_id' => ['required'],
             'position_id' => ['required'],
+            'salary' => ['required', 'decimal:0,2'],
+            'payment_date' => ['required', 'string'],
         ];
 
         $validatedReq = $request->validate($rules);
@@ -141,6 +159,10 @@ class EmployeeController extends Controller
 
         $pos = Position::find($validatedReq['position_id']);
         $employee->positions()->attach($pos, ['start_date' => Carbon::today()]);
+
+        $employee->salary->amount = $validatedReq['salary'];
+        $employee->salary->payment_date = $validatedReq['payment_date'];
+
         $employee->save();
 
         return redirect()->route('admin.employee.index');

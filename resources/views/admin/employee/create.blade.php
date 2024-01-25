@@ -22,7 +22,7 @@
                             </div>
                             <div class="col-12 col-md-6">
                                 <label for="phone">Phone</label>
-                                <input type="phone" name="phone" class="form-control" id="phone" required>
+                                <input type="text" name="phone" class="form-control" id="phone" required>
                             </div>
                         </div>
                         <div class="mb-4 row">
@@ -71,9 +71,19 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="mb-4">
-                            <label for="address">Address</label>
-                            <textarea name="address" id="address"rows="3" class="form-control"></textarea>
+                        <div class="mb-4 row">
+                            <div class="col-12 col-md-6">
+                                <label for="address">Address</label>
+                                <textarea name="address" id="address"rows="5" class="form-control"></textarea>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="mb-2">
+                                    <label for="salary">Salary</label>
+                                    <input type="text" name="salary" class="form-control" id="salary" required>
+                                </div>
+                                <label for="payment_date">Payment date</label>
+                                <input type="date" name="payment_date" class="form-control" id="payment_date" required>
+                            </div>
                         </div>
                         <button type="submit" class="btn btn-primary">
                             Save

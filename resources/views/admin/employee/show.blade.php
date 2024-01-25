@@ -64,9 +64,15 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <div class="mb-4">
-                                    <span class="small">Address</span>
-                                    <p>{{ $employee->address }}</p>
+                                <div class="mb-4 row">
+                                    <div class="col-12 col-md-6">
+                                        <span class="small">Salary</span>
+                                        <h5>{{$employee->salary->amount}}</h5>
+                                    </div>
+                                    <div class="col-12 col-md-6">
+                                        <span class="small">Address</span>
+                                        <p>{{ $employee->address }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
