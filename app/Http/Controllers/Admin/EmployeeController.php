@@ -140,7 +140,7 @@ class EmployeeController extends Controller
         $employee->division_id = $validatedReq['division_id'];
 
         $pos = Position::find($validatedReq['position_id']);
-        $employee->positions()->attach($pos,['employee_id' => $employee->id,'start_date'=> Carbon::today()]);
+        $employee->positions()->attach($pos, ['start_date' => Carbon::today()]);
         $employee->save();
 
         return redirect()->route('admin.employee.index');

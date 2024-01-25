@@ -55,7 +55,12 @@
                                     <div class="col-12 col-md-6">
                                         <span class="small">Position</span>
                                         @foreach ($employee->positions as $item)
-                                            <h5>{{ $item->name }}</h5>
+                                            <div class="mb-2">
+                                                <h6>{{ $item->name }}</h6>
+                                                <p class="small">
+                                                    {{ $item->pivot->start_date. " s/d ". $item->pivot->end_date}}
+                                                </p>
+                                            </div>
                                         @endforeach
                                     </div>
                                 </div>
