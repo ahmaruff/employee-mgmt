@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\Division;
 use App\Models\Position;
 use App\Models\Employee;
+use App\Models\Salary;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -27,6 +28,12 @@ class EmployeeSeeder extends Seeder
         $employee->division_id = $div->id;
 
         $employee->save();
+
+        Salary::create([
+            'employee_id' => $employee->id,
+            'amount' => 40000,
+            'payment_date' => '2024-01-10'
+        ]);
 
         $pos = Position::find(1);
         $employee->positions()->attach($pos,['employee_id' => $employee->id,'start_date'=> '2024-01-04']);
