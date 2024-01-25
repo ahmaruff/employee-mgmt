@@ -83,7 +83,12 @@ class EmployeeController extends Controller
      */
     public function show(Employee $employee)
     {
-        //
+        $data = [
+            'title' => 'Employee - '.$employee->lastname,
+            'employee'=> $employee
+        ];
+
+        return view('admin.employee.show', $data);
     }
 
     /**
