@@ -64,6 +64,14 @@
             <span class="sidebar-text">Employees Data</span>
             </a>
         </li>
+        <li class="nav-item ">
+            <a href="{{route('admin.position.index')}}" class="nav-link">
+            <span class="sidebar-icon">
+                <i class="bi bi-list-ol"></i>
+            </span>
+            <span class="sidebar-text">Position</span>
+            </a>
+        </li>
         </ul>
     </div>
 </nav>

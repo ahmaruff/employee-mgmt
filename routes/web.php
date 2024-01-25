@@ -30,5 +30,6 @@ Route::prefix('admin')->name('admin.')->group(function() {
 
         // Division
         Route::resource('division', \App\Http\Controllers\Admin\DivisionController::class);
+        Route::resource('position', \App\Http\Controllers\Admin\PositionController::class);
     });
 });
