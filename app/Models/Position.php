@@ -15,6 +15,6 @@ class Position extends Model
 
     public function employees() : BelongsToMany
     {
-        return $this->belongsToMany(Employee::class);
+        return $this->belongsToMany(Employee::class)->withPivot(['start_date', 'end_date'])->withTimestamps();
     }
 }
