@@ -57,7 +57,7 @@
             </a>
         </li>
         <li class="nav-item ">
-            <a href="../../pages/settings.html" class="nav-link">
+            <a href="{{route('admin.employee.index')}}" class="nav-link">
             <span class="sidebar-icon">
                 <i class="bi bi-person-vcard"></i>
             </span>
