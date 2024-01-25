@@ -52,13 +52,13 @@
 </head>
 <body>
     <main>
-        @include('admin.layout.nav')
+        @include('admin.layouts.nav')
         <main class="content">
-            @include('admin.layout.header')
+            @include('admin.layouts.header')
             <div class="py-4">
                 @yield('content')
             </div>
-            @include('admin.layout.footer')
+            @include('admin.layouts.footer')
         </main>
     </main>
 
