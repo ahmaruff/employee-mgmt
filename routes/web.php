@@ -13,9 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// HOME
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::prefix('admin')->group(function() {
     // AUTH
@@ -24,6 +23,7 @@ Route::prefix('admin')->group(function() {
     Route::get('/register', [\App\Http\Controllers\Admin\Auth\RegisteredUserController::class, 'create'])->name('admin.register');
     Route::post('/register', [\App\Http\Controllers\Admin\Auth\RegisteredUserController::class, 'store'])->name('admin.post-register');
 
+    // ADMIN
     Route::middleware('auth:admin')->group(function () {
         Route::post('logout', [\App\Http\Controllers\Admin\Auth\AuthenticatedSessionController::class, 'destroy'])->name('admin.logout');
         Route::get('/', [\App\Http\Controllers\Admin\HomeController::class, 'index'])->name('admin.dashboard');
